@@ -54,6 +54,7 @@
 #define MSM_CAMERA_SUBDEV_EXT          19
 #define MSM_CAMERA_SUBDEV_TOF          20
 #define MSM_CAMERA_SUBDEV_LASER_LED    21
+<<<<<<< HEAD
 #ifdef CONFIG_MACH_XIAOMI_LAVENDER
 #define MSM_MAX_CAMERA_SENSORS  7
 #else
@@ -61,6 +62,9 @@
 #endif
 #define MSM_MAX_CAMERA_SENSORS  5
 #endif
+=======
+#define MSM_MAX_CAMERA_SENSORS  6
+>>>>>>> 9c4f8e56f881... msm: camera: sensor: Add support for front aux sensor
 
 /* The below macro is defined to put an upper limit on maximum
  * number of buffer requested per stream. In case of extremely
