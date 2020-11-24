@@ -152,6 +152,8 @@ int msm_camera_fill_vreg_params(struct camera_vreg_t *cam_vreg,
 					break;
 				}
 			}
+			break;
+			
 			if (j == num_vreg)
 				power_setting[i].seq_val = INVALID_VREG;
 			break;
