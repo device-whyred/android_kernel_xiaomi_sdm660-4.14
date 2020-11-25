@@ -2,6 +2,7 @@
  *  thermal_core.h
  *
  *  Copyright (C) 2012  Intel Corp
+ *  Copyright (C) 2019 XiaoMi, Inc.
  *  Author: Durgadoss R <durgadoss.r@intel.com>
  *
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,6 +58,17 @@ struct thermal_instance {
 	struct list_head cdev_node; /* node in cdev->thermal_instances */
 	unsigned int weight; /* The weight of the cooling device */
 };
+
+#ifdef CONFIG_MACH_MI
+struct thermal_message {
+	bool message_ok;
+	const char *batt_array_size;
+	const char *batt_level_screen_on;
+	const char *batt_level_screen_off;
+};
+
+extern struct thermal_message *tm;
+#endif
 
 #define to_thermal_zone(_dev) \
 	container_of(_dev, struct thermal_zone_device, device)
@@ -160,6 +172,10 @@ int of_thermal_get_ntrips(struct thermal_zone_device *);
 bool of_thermal_is_trip_valid(struct thermal_zone_device *, int);
 const struct thermal_trip *
 of_thermal_get_trip_points(struct thermal_zone_device *);
+#ifdef CONFIG_MACH_MI
+int of_parse_thermal_message(void);
+void free_thermal_message(void);
+#endif
 int of_thermal_aggregate_trip(struct thermal_zone_device *tz,
 			      enum thermal_trip_type type,
 			      int *low, int *high);
