@@ -52,8 +52,6 @@
 
 #define FRONT_AUX_SENSOR_SUPPORT
 
-#define FRONT_AUX_SENSOR_SUPPORT
-
 enum msm_sensor_camera_id_t {
 	CAMERA_0,
 	CAMERA_1,
